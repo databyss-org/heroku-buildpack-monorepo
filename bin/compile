@@ -34,7 +34,7 @@ fi
 
 # Use architecture of multi-buildpack to compose behavior.
 # https://github.com/heroku/heroku-buildpack-multi
-cp ${APP_BUILD_ROOT}/.buildpacks $BUILD_DIR/.buildpacks
+cp $BUILD_DIR/$APP_BUILD_ROOT/.buildpacks $BUILD_DIR/.buildpacks
 url=https://github.com/heroku/heroku-buildpack-multi.git
 branch=""
 dir=$(mktemp -t buildpackXXXXX)
