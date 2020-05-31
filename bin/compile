@@ -26,9 +26,14 @@ BP_DIR=`cd $(dirname $0); cd ..; pwd`
 # Switch to new Node auto build behavior ahead of release
 export NEW_BUILD_SCRIPT_BEHAVIOR=true
 
+if [[ -z "${APP_BUILD_ROOT}" ]]; then
+    echo "APP_BUILD_ROOT was not set. Aborting" | indent
+    exit 1
+fi
+
 # Use architecture of multi-buildpack to compose behavior.
 # https://github.com/heroku/heroku-buildpack-multi
-cp $APP_BUILD_ROOT/.buildpacks $BUILD_DIR/.buildpacks
+cp ${APP_BUILD_ROOT}/.buildpacks $BUILD_DIR/.buildpacks
 url=https://github.com/heroku/heroku-buildpack-multi.git
 branch=""
 dir=$(mktemp -t buildpackXXXXX)
