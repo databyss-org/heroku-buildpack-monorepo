@@ -28,7 +28,7 @@ export NEW_BUILD_SCRIPT_BEHAVIOR=true
 
 # Use architecture of multi-buildpack to compose behavior.
 # https://github.com/heroku/heroku-buildpack-multi
-cp $BP_DIR/.buildpacks $BUILD_DIR/.buildpacks
+cp $APP_BUILD_ROOT/.buildpacks $BUILD_DIR/.buildpacks
 url=https://github.com/heroku/heroku-buildpack-multi.git
 branch=""
 dir=$(mktemp -t buildpackXXXXX)
